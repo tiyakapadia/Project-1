@@ -1,0 +1,45 @@
+# date:   2026-11-04T00:40:37Z
+# commit: 73173fb
+# config: WIDTH=8 DEPTH=8
+# seed:   4
+# cmd:    SEED=4 N_CYCLES=3000 BURSTS=1 RESETS=1 make MODULE=test_crv SIM=icarus WIDTH=8 DEPTH=8
+# ----
+rm -f results.xml
+/home/net/ti506075/.venv/lib/python3.12/site-packages/cocotb_tools/makefiles/simulators/Makefile.icarus:68: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=test_crv COCOTB_TESTCASE=  COCOTB_TOPLEVEL=fifo TOPLEVEL_LANG=verilog       \
+	 /usr/bin/vvp -m /home/net/ti506075/.venv/lib/python3.12/site-packages/cocotb/libs/libcocotbvpi_icarus.so   sim_build_w8_d8/sim.vvp   
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/home/net/ti506075/.venv/lib/python3.12/site-packages/cocotb/simulator.cpython-312-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at /home/net/ti506075/.venv/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1793752839
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /home/net/ti506075/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running test_crv.test_crv (1/1)
+    20.00ns INFO     cocotb.fifo                        SEED=0x4  N_CYCLES=3000  WIDTH=8  DEPTH=8  BURSTS=1  RESETS=1
+    20.00ns WARNING  py.warnings                        /home/net/ti506075/.venv/lib/python3.12/site-packages/vsc/model/field_scalar_model.py:93: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+                                                          self.val.v = int(val)
+    20.00ns WARNING  py.warnings                        /home/net/ti506075/.venv/lib/python3.12/site-packages/vsc/model/value_scalar.py:80: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+                                                          v = int(rhs)
+    20.00ns WARNING  py.warnings                        /home/net/ti506075/.venv/lib/python3.12/site-packages/vsc/model/variable_bound_expr_max_propagator.py:19: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+                                                          return int(self.max_e.val())
+    20.00ns WARNING  py.warnings                        /home/net/ti506075/.venv/lib/python3.12/site-packages/vsc/model/value_scalar.py:48: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+                                                          v = int(rhs)
+    20.00ns WARNING  py.warnings                        /home/net/ti506075/.venv/lib/python3.12/site-packages/vsc/model/expr_literal_model.py:42: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+                                                          return btor.Const(int(self.val()), ctx_width)
+    20.00ns WARNING  py.warnings                        /home/net/ti506075/.venv/lib/python3.12/site-packages/vsc/model/expr_partselect_model.py:40: DeprecationWarning: __int__ returned non-int (type ValueInt).  The ability to return an instance of a strict subclass of int is deprecated, and may be removed in a future version of Python.
+                                                          return btor.Slice(
+ 30121.00ns INFO     cocotb.fifo                        occupancy 0:708 1:567 2:196 3:206 4:195 5:213 6:203 7:233 8:479
+ 30121.00ns INFO     cocotb.fifo                        wr_while_full=337  rd_while_empty=268  simultaneous_rw_midrange=95
+ 30121.00ns INFO     cocotb.fifo                        longest_run: writes=18 reads=17 alternating=18
+ 30121.00ns INFO     cocotb.fifo                        resets_done=5  (occupancy, wr_en, rd_en): [(7, 1, 0), (8, 1, 1), (4, 0, 1), (1, 1, 1), (0, 1, 0)]
+ 30121.00ns INFO     cocotb.regression                  test_crv.test_crv passed
+ 30121.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** test_crv.test_crv              PASS       30121.00          28.69       1050.03  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0              30121.00          28.69       1050.01  **
+                                                        **************************************************************************************

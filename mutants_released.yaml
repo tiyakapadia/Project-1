@@ -1,0 +1,35 @@
+# FIFO mutation pool -- RELEASED (practice).  Score = found / total.
+dut: fifo.sv
+mutants:
+  - id: full_offbyone
+    desc: "full asserts one entry too early (cnt == DEPTH-1)"
+    find: "assign full    = (cnt == DEPTH);"
+    replace: "assign full    = (cnt == DEPTH-1);"
+  - id: empty_offbyone
+    desc: "empty asserts one entry too early (cnt == 1)"
+    find: "assign empty   = (cnt == 0);"
+    replace: "assign empty   = (cnt == 1);"
+  - id: ignore_full
+    desc: "writes are accepted even when full (overflow)"
+    find: "assign do_wr = wr_en & ~full;"
+    replace: "assign do_wr = wr_en;"
+  - id: ignore_empty
+    desc: "reads are accepted even when empty (underflow)"
+    find: "assign do_rd = rd_en & ~empty;"
+    replace: "assign do_rd = rd_en;"
+  - id: count_wr_dec
+    desc: "a write-only cycle decrements the count"
+    find: "2'b10:   cnt <= cnt + 1'b1;"
+    replace: "2'b10:   cnt <= cnt - 1'b1;"
+  - id: rd_data_wrptr
+    desc: "rd_data reads from the write pointer instead of the read pointer"
+    find: "assign rd_data = mem[rd_ptr];"
+    replace: "assign rd_data = mem[wr_ptr];"
+  - id: mem_corrupt
+    desc: "stored data is corrupted (+1) on write"
+    find: "mem[wr_ptr] <= wr_data;"
+    replace: "mem[wr_ptr] <= wr_data + 1'b1;"
+  - id: wrptr_wrap_early
+    desc: "write pointer wraps one slot early"
+    find: "wr_ptr      <= (wr_ptr == ADDRW'(DEPTH-1)) ? '0 : wr_ptr + 1'b1;"
+    replace: "wr_ptr      <= (wr_ptr == ADDRW'(DEPTH-2)) ? '0 : wr_ptr + 1'b1;"

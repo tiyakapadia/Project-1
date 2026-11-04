@@ -1,15 +1,24 @@
-# Default simulator 
 SIM ?= icarus
-
-# Hardware language
 TOPLEVEL_LANG ?= verilog
 
-# Path to your Verilog RTL file.
-VERILOG_SOURCES += $(PWD)/fifo.sv
+WIDTH ?= 8
+DEPTH ?= 8
+export WIDTH DEPTH
 
-# The exact name of the Verilog module inside fifo.sv
+DUT ?= $(CURDIR)/fifo.sv
+VERILOG_SOURCES = $(DUT)
 TOPLEVEL = fifo
+MODULE ?= test_crv
 
-COCOTB_TEST_MODULES = test_fifo
+SIM_BUILD ?= sim_build_w$(WIDTH)_d$(DEPTH)
+
+ifeq ($(SIM),icarus)
+COMPILE_ARGS += -Pfifo.WIDTH=$(WIDTH) -Pfifo.DEPTH=$(DEPTH)
+endif
+ifeq ($(SIM),verilator)
+COMPILE_ARGS += -GWIDTH=$(WIDTH) -GDEPTH=$(DEPTH)
+endif
+
+export PYTHONPATH := $(CURDIR):$(CURDIR)/tb:$(CURDIR)/lib:$(PYTHONPATH)
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
