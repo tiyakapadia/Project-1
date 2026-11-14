@@ -129,8 +129,8 @@ person, always.
 
 - [X] Every claim above can be traced to the repo history.
 - [X] This file was updated at each milestone, not reconstructed at the end.
-- [] Every member has read this file and agrees it is accurate.
-- [ ] Each member has separately submitted their **confidential individual peer
+- [X] Every member has read this file and agrees it is accurate.
+- [X] Each member has separately submitted their **confidential individual peer
       eval** — teammates' main contributions, an equity judgment, one sentence
       of evidence each — outside this repo, by the M4 deadline.
 
