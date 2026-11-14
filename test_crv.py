@@ -1,6 +1,6 @@
 import os, sys
 _HERE = os.path.dirname(os.path.abspath(__file__))
-for _sub in ("tb", "crv", "models"):
+for _sub in ("", "tb", "crv", "models"):
     _p = os.path.join(_HERE, _sub)
     if os.path.isdir(_p) and _p not in sys.path:
         sys.path.insert(0, _p)
