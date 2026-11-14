@@ -1,4 +1,4 @@
-regression: module=test_crv sim=icarus N_CYCLES=3000 bursts=1 resets=1 commit=73173fb
+regression: module=test_crv sim=icarus N_CYCLES=3000 bursts=1 resets=1 commit=7298a6c
 config  seed       result stimulus
 8x8     0xC0FFEE   PASS   occupancy 0:705 1:550 2:200 3:202 4:211 5:210 6:208 7:246 8:468 wr_while_full=342  rd_while_empty=257  simultaneous_rw_midrange=99 longest_run: writes=17 reads=15 alternating=18 occupancy, wr_en, rd_en): [(7, 1, 0), (8, 1, 1), (4, 0, 1), (1, 1, 1), (0, 1, 0)] 
 8x8     1          PASS   occupancy 0:696 1:547 2:199 3:216 4:206 5:201 6:200 7:251 8:484 wr_while_full=352  rd_while_empty=260  simultaneous_rw_midrange=113 longest_run: writes=20 reads=20 alternating=18 occupancy, wr_en, rd_en): [(7, 1, 0), (8, 1, 1), (4, 0, 1), (1, 1, 1), (0, 1, 0)] 
