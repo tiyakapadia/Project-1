@@ -53,7 +53,7 @@ async def reset_mid_traffic(dut, scoreboard, obs_queue, wr_en, rd_en):
     dut.rst_n.value = 0
     for _ in range(2):
         await RisingEdge(dut.clk)
-    await Timer(1, unit="ns")
+    await Timer(1, units="ns")
     count, empty, full = int(dut.count.value), int(dut.empty.value), int(dut.full.value)
     assert (count, empty, full) == (0, 1, 0), \
         f"after reset with wr_en={wr_en} rd_en={rd_en}: count={count} empty={empty} full={full}"
@@ -67,7 +67,7 @@ async def reset_mid_traffic(dut, scoreboard, obs_queue, wr_en, rd_en):
 
 @cocotb.test()
 async def test_crv(dut):
-    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
+    cocotb.start_soon(Clock(dut.clk, 10, units="ns").start())
     await reset_dut(dut)
 
     obs_queue = Queue()
@@ -120,7 +120,7 @@ async def test_crv(dut):
         obs = await with_timeout(obs_queue.get(), 100, "ns")
         scoreboard.check(tx, obs, tag=f"seed {SEED:#x}")
         hist[model.count] += 1
-        await Timer(1, unit="ns")
+        await Timer(1, units="ns")
 
     dut._log.info("occupancy " + " ".join(f"{o}:{hist[o]}" for o in range(DEPTH + 1)))
     dut._log.info(f"wr_while_full={wr_full}  rd_while_empty={rd_empty}  simultaneous_rw_midrange={both}")
