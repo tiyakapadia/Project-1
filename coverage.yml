@@ -1,0 +1,48 @@
+top:
+  cover_percentage: 100.0
+  coverage: 19
+  size: 19
+  type: <class 'cocotb_coverage.coverage.CoverItem'>
+top.occ:
+  at_least: 1
+  bins:_hits:
+    empty: 21
+    full: 10
+    partial: 193
+  cover_percentage: 100.0
+  coverage: 3
+  size: 3
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
+top.occ_x_op:
+  at_least: 1
+  bins:_hits:
+    ('empty', 'idle'): 1
+    ('empty', 'read'): 6
+    ('empty', 'simul'): 6
+    ('empty', 'write'): 8
+    ('full', 'idle'): 3
+    ('full', 'read'): 3
+    ('full', 'simul'): 1
+    ('full', 'write'): 3
+    ('partial', 'idle'): 35
+    ('partial', 'read'): 46
+    ('partial', 'simul'): 71
+    ('partial', 'write'): 41
+  cover_percentage: 100.0
+  coverage: 12
+  size: 12
+  type: <class 'cocotb_coverage.coverage.CoverCross'>
+  weight: 1
+top.op:
+  at_least: 1
+  bins:_hits:
+    idle: 39
+    read: 55
+    simul: 78
+    write: 52
+  cover_percentage: 100.0
+  coverage: 4
+  size: 4
+  type: <class 'cocotb_coverage.coverage.CoverPoint'>
+  weight: 1
